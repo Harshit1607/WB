@@ -80,7 +80,7 @@ export const products: Product[] = [
     description: 'Minimalist table lamp with adjustable brightness and color temperature. Perfect for your home office or bedside table.',
     category: 'Home',
     brand: 'Lumina',
-    image: 'https://images.unsplash.com/photo-1534073828943-f801091bb18c?auto=format&fit=crop&q=80&w=600',
+    image: '/products/table-lamp.png',
     rating: { rate: 4.4, count: 140 }
   },
   {
