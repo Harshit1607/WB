@@ -8,6 +8,7 @@ import { Footer } from '@/components/Footer';
 import { useCartStore } from '@/lib/store';
 import { motion } from 'framer-motion';
 import { Star, ShoppingCart, ArrowLeft, ShieldCheck, Truck, RotateCcw, Minus, Plus } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 export default function ProductDetail() {
   const params = useParams();
@@ -36,6 +37,7 @@ export default function ProductDetail() {
 
   const handleAddToCart = () => {
     addItem(product, quantity);
+    toast.success(`${quantity} ${product.title} added to cart!`);
   };
 
   return (

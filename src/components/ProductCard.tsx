@@ -5,6 +5,7 @@ import { ShoppingCart, Star, Plus } from 'lucide-react';
 import { Product } from '@/data/products';
 import { useCartStore } from '@/lib/store';
 import { motion } from 'framer-motion';
+import toast from 'react-hot-toast';
 
 interface ProductCardProps {
   product: Product;
@@ -12,6 +13,11 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const addItem = useCartStore((state) => state.addItem);
+
+  const handleAdd = () => {
+    addItem(product);
+    toast.success(`${product.title} added to cart!`);
+  };
 
   return (
     <motion.div
@@ -58,7 +64,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           
           <motion.button
             whileTap={{ scale: 0.9 }}
-            onClick={() => addItem(product)}
+            onClick={handleAdd}
             className="bg-primary text-white p-3 rounded-2xl shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1"
           >
             <Plus className="w-5 h-5" />
