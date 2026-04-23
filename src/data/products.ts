@@ -50,7 +50,7 @@ export const products: Product[] = [
     description: 'Classic denim jacket made from premium cotton. A versatile piece that adds a touch of style to any outfit.',
     category: 'Apparel',
     brand: 'UrbanWear',
-    image: 'https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&q=80&w=600',
+    image: '/products/denim-jacket.png',
     rating: { rate: 4.3, count: 95 }
   },
   {
