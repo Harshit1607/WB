@@ -30,6 +30,16 @@ function ProductListings() {
     });
   }, [searchParams]);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
     <div className="flex-1">
       <div className="flex items-center justify-between mb-8">
@@ -45,9 +55,10 @@ function ProductListings() {
         {filteredProducts.length > 0 ? (
           <motion.div 
             key="grid"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {filteredProducts.map((product) => (
