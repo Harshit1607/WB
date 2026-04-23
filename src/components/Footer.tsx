@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Github } from 'lucide-react';
+import { Globe, Mail, Gift, Smile } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -46,16 +46,16 @@ export const Footer = () => {
             <h3 className="font-semibold mb-4">Connect With Us</h3>
             <div className="flex items-center gap-4">
               <Link href="#" className="p-2 bg-background rounded-full hover:bg-primary hover:text-white transition-all shadow-sm">
-                <Facebook className="w-4 h-4" />
+                <Globe className="w-4 h-4" />
               </Link>
               <Link href="#" className="p-2 bg-background rounded-full hover:bg-primary hover:text-white transition-all shadow-sm">
-                <Twitter className="w-4 h-4" />
+                <Mail className="w-4 h-4" />
               </Link>
               <Link href="#" className="p-2 bg-background rounded-full hover:bg-primary hover:text-white transition-all shadow-sm">
-                <Instagram className="w-4 h-4" />
+                <Smile className="w-4 h-4" />
               </Link>
               <Link href="#" className="p-2 bg-background rounded-full hover:bg-primary hover:text-white transition-all shadow-sm">
-                <Github className="w-4 h-4" />
+                <Gift className="w-4 h-4" />
               </Link>
             </div>
           </div>

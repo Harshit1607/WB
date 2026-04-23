@@ -79,7 +79,9 @@ function ProductListings() {
 export default function Home() {
   return (
     <main className="min-h-screen pt-24">
-      <Header />
+      <Suspense fallback={<div className="h-20 bg-background" />}>
+        <Header />
+      </Suspense>
       
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row gap-10">

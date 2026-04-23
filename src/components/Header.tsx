@@ -15,7 +15,10 @@ export const Header = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -70,7 +73,7 @@ export const Header = () => {
           <Link href="/cart" className="relative p-2 hover:bg-secondary rounded-full transition-colors">
             <ShoppingCart className="w-5 h-5" />
             <AnimatePresence>
-              {totalItems > 0 && (
+              {mounted && totalItems > 0 && (
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}

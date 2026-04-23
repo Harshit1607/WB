@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, Suspense } from 'react';
 import { useCartStore } from '@/lib/store';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -11,13 +12,23 @@ import { useRouter } from 'next/navigation';
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getTotalPrice } = useCartStore();
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return <div className="min-h-screen pt-24 bg-background" />;
+
   const totalPrice = getTotalPrice();
   const shipping = items.length > 0 ? (totalPrice > 500 ? 0 : 25) : 0;
   const tax = totalPrice * 0.08;
 
   return (
     <main className="min-h-screen pt-24">
-      <Header />
+      <Suspense fallback={<div className="h-20 bg-background" />}>
+        <Header />
+      </Suspense>
       
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-10 tracking-tight">Your Shopping Cart</h1>

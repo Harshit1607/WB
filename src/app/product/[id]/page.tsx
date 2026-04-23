@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { products } from '@/data/products';
 import { Header } from '@/components/Header';
@@ -7,7 +8,6 @@ import { Footer } from '@/components/Footer';
 import { useCartStore } from '@/lib/store';
 import { motion } from 'framer-motion';
 import { Star, ShoppingCart, ArrowLeft, ShieldCheck, Truck, RotateCcw, Minus, Plus } from 'lucide-react';
-import { useState } from 'react';
 
 export default function ProductDetail() {
   const params = useParams();
@@ -35,19 +35,16 @@ export default function ProductDetail() {
   }
 
   const handleAddToCart = () => {
-    // Note: My store addItem currently only adds 1. I'll modify it or just call it multiple times for this demo.
-    // Actually, I'll just add 1 for now to match the store logic, or I should have added an 'amount' param.
-    // For simplicity, I'll just call addItem.
     addItem(product);
-    // Ideally I'd update the store to handle multiple quantities at once.
   };
 
   return (
     <main className="min-h-screen pt-24">
-      <Header />
+      <Suspense fallback={<div className="h-20 bg-background" />}>
+        <Header />
+      </Suspense>
       
       <div className="container mx-auto px-4 py-8">
-        {/* Breadcrumbs / Back */}
         <button 
           onClick={() => router.back()}
           className="group flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-8"
@@ -59,7 +56,6 @@ export default function ProductDetail() {
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -72,7 +68,6 @@ export default function ProductDetail() {
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Thumbnails placeholder */}
             <div className="flex gap-4 mt-6">
               {[1, 2, 3].map((i) => (
                 <div key={i} className="w-20 h-20 rounded-2xl border-2 border-border overflow-hidden cursor-pointer hover:border-primary transition-all">
@@ -82,7 +77,6 @@ export default function ProductDetail() {
             </div>
           </motion.div>
 
-          {/* Details Section */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -106,7 +100,6 @@ export default function ProductDetail() {
               </p>
             </div>
 
-            {/* Selection */}
             <div className="space-y-6 mb-10">
               <div>
                 <h3 className="font-bold mb-3">Quantity</h3>
@@ -141,7 +134,6 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            {/* Perks */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-border pt-10">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-primary/10 text-primary rounded-lg">
@@ -174,7 +166,6 @@ export default function ProductDetail() {
           </motion.div>
         </div>
 
-        {/* Reviews Section Placeholder */}
         <section className="mt-24 border-t border-border pt-20">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-3xl font-bold">Customer Reviews</h2>
