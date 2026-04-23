@@ -50,7 +50,7 @@ export const products: Product[] = [
     description: 'Classic denim jacket made from premium cotton. A versatile piece that adds a touch of style to any outfit.',
     category: 'Apparel',
     brand: 'UrbanWear',
-    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=600', // Placeholder, will fix images later
+    image: 'https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&q=80&w=600',
     rating: { rate: 4.3, count: 95 }
   },
   {
@@ -80,7 +80,7 @@ export const products: Product[] = [
     description: 'Minimalist table lamp with adjustable brightness and color temperature. Perfect for your home office or bedside table.',
     category: 'Home',
     brand: 'Lumina',
-    image: 'https://images.unsplash.com/photo-1507473885765-e6ed657f9971?auto=format&fit=crop&q=80&w=600',
+    image: 'https://images.unsplash.com/photo-1534073828943-f801091bb18c?auto=format&fit=crop&q=80&w=600',
     rating: { rate: 4.4, count: 140 }
   },
   {
