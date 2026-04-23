@@ -35,7 +35,7 @@ export default function ProductDetail() {
   }
 
   const handleAddToCart = () => {
-    addItem(product);
+    addItem(product, quantity);
   };
 
   return (
