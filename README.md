@@ -4,6 +4,8 @@ GravityShop is a high-fidelity, premium e-commerce platform built with **Next.js
 
 ![Project Preview](https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=1200)
 
+🔗 **[Live Demo](https://gravity-8kda.onrender.com)**
+
 ## ✨ Features
 
 - **🚀 Performance First**: Optimized with Next.js 16 App Router for blazing-fast page loads.
